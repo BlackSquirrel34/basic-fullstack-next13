@@ -29,6 +29,7 @@ export default function AddPost() {
         body: JSON.stringify({ title, content }),
       });
 
+      // so Feed gets updated immediately after we added a new post, not just upon reload
       router.refresh();
     } catch (error) {
       console.error(error);
@@ -40,6 +41,7 @@ export default function AddPost() {
 
   return (
     <main className={styles.main}>
+      <Link href={"/"}>View Feed</Link>
       <h1>Add Post</h1>
 
       <form onSubmit={handleSubmit}>
